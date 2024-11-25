@@ -46,14 +46,17 @@
             </summary>
         
             <section class="colors derived">
-                <div class="color dominant small saturation-10">S: 10</div>
-                <div class="color dominant small saturation-20">S: 20</div>
-                <div class="color dominant small saturation-30">S: 30</div>
-                <div class="color dominant small saturation-40">S: 40</div>
-                <div class="color dominant small saturation-60">S: 60</div>
-                <div class="color dominant small saturation-70">S: 70</div>
-                <div class="color dominant small saturation-80">S: 80</div>
+                <div class="color dominant small saturation-100">S: 100</div>
                 <div class="color dominant small saturation-90">S: 90</div>
+                <div class="color dominant small saturation-80">S: 80</div>
+                <div class="color dominant small saturation-70">S: 70</div>
+                <div class="color dominant small saturation-60">S: 60</div>
+                <div class="color dominant small saturation-50">S: 50</div>
+                <div class="color dominant small saturation-40">S: 40</div>
+                <div class="color dominant small saturation-30">S: 30</div>
+                <div class="color dominant small saturation-20">S: 20</div>
+                <div class="color dominant small saturation-10">S: 10</div>
+                <div class="color dominant small saturation-0">S: 0</div>
             </section>
         </details>
 
@@ -71,7 +74,7 @@
             </section>
     </section>
 
-    <section>
+    <section class="colors">
         <form class="color large" id="composable">
             <label for="hue">Hue</label>
             <input type="range" id="hue" name="hue" min="0" max="360" value="180">
@@ -80,10 +83,23 @@
             <label for="lightness">Lgt</label>
             <input type="range" id="lightness" name="lightness" min="0" max="100" value="50">
         </form>
+
+        <section class="colors derived" id="variable-colors">
+            <div class="color small lightness-40">L: 40</div>
+            <div class="color small lightness-30">L: 30</div>
+            <div class="color small lightness-20">L: 20</div>
+            <div class="color small lightness-10">L: 10</div>
+            <div class="color small lightness-60">L: 60</div>
+            <div class="color small lightness-70">L: 70</div>
+            <div class="color small lightness-80">L: 80</div>
+            <div class="color small lightness-90">L: 90</div>
+        </section>
+
     </section>
 
     <script>
         const composable = document.getElementById('composable');
+        const variableColors = document.getElementById('variable-colors');
         const hue = document.getElementById('hue');
         const saturation = document.getElementById('saturation');
         const lightness = document.getElementById('lightness');
@@ -92,6 +108,8 @@
             composable.style.setProperty('--color-hue', hue.value);
             composable.style.setProperty('--color-saturation', saturation.value);
             composable.style.setProperty('--color-lightness', lightness.value);
+
+            variableColors.style.setProperty('--hue-main', hue.value);
         });
     </script>
 

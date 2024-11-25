@@ -37,7 +37,7 @@
 @property --color-saturation {
     syntax: "<number>";
     inherits: false;
-    initial-value: 50;
+    initial-value: 100;
 }
 
 @property --hue-info {
@@ -64,10 +64,15 @@
     initial-value: 20;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .colors {
     display: flex;
     gap: 4px;
     margin: 8px 0;
+    width: 610px;
     
     &.derived {
         flex-wrap: wrap;
@@ -79,6 +84,10 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 4px;
+
+        .colors {
+            width: 200px;
+        }
 
         .white {
             grid-column: 1 / 2;
@@ -234,6 +243,10 @@ details {
     --color-lightness: 90;
 }
 
+.color.saturation-0 {
+    --color-saturation: 0;
+}
+
 .color.saturation-10 {
     --color-saturation: 10;
 }
@@ -248,6 +261,10 @@ details {
 
 .color.saturation-40 {
     --color-saturation: 40;
+}
+
+.color.saturation-50 {
+    --color-saturation: 50;
 }
 
 .color.saturation-60 {
@@ -266,7 +283,25 @@ details {
     --color-saturation: 90;
 }
 
+.color.saturation-100 {
+    --color-saturation: 100;
+}
+
 /* For the dynamic color picker thing */
 form.color {
     --color-main: hsl(var(--color-hue) var(--color-saturation) var(--color-lightness));
+}
+
+:where(#variable-colors) {
+    --hue-main: 180;
+}
+
+form#composable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 4px;
+    margin: 0;
+    font-size: 20px;
 }
