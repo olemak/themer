@@ -22,6 +22,12 @@
     initial-value: 85;
 }
 
+@property --color-hue {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 180;
+}
+
 @property --color-lightness {
     syntax: "<number>";
     inherits: false;
@@ -258,4 +264,9 @@ details {
 
 .color.saturation-90 {
     --color-saturation: 90;
+}
+
+/* For the dynamic color picker thing */
+form.color {
+    --color-main: hsl(var(--color-hue) var(--color-saturation) var(--color-lightness));
 }

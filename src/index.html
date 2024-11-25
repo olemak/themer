@@ -71,6 +71,29 @@
             </section>
     </section>
 
+    <section>
+        <form class="color large" id="composable">
+            <label for="hue">Hue</label>
+            <input type="range" id="hue" name="hue" min="0" max="360" value="180">
+            <label for="saturation">Sat</label>
+            <input type="range" id="saturation" name="saturation" min="0" max="100" value="100">
+            <label for="lightness">Lgt</label>
+            <input type="range" id="lightness" name="lightness" min="0" max="100" value="50">
+        </form>
+    </section>
+
+    <script>
+        const composable = document.getElementById('composable');
+        const hue = document.getElementById('hue');
+        const saturation = document.getElementById('saturation');
+        const lightness = document.getElementById('lightness');
+
+        composable.addEventListener('change', () => {
+            composable.style.setProperty('--color-hue', hue.value);
+            composable.style.setProperty('--color-saturation', saturation.value);
+            composable.style.setProperty('--color-lightness', lightness.value);
+        });
+    </script>
 
 </body>
 </html>
